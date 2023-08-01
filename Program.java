@@ -39,5 +39,19 @@ public class Program {
         user.choise();
         //user.userCh(5);
         user.comparingChoise(user.userCh(5), myList, myList2);
+
+        ArrayList<String> buyProducts = new ArrayList<>();
+        buyProducts.add("Twix");
+        buyProducts.add("sneck");
+
+        Human tatiana = new Human("Тatiana", false, false, 120);
+        tatiana.setNearestAutomat(list);
+        System.out.println(tatiana.toString());
+        System.out.println("Список продуктов: " + myList.toString());
+
+        Order tatianaOrder = tatiana.makeOrder(buyProducts, tatiana);
+        System.out.println(tatianaOrder.toString());
+        //не понимаю почему в итоге печатает пустой
+
     }
 }
