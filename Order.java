@@ -5,10 +5,10 @@ public class Order {
     private Human buyer;
     private int check;
 
-    public Order(int check, List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
+    public Order(int check, List<Product> shoppingList, Human buyer) {
     }
 
-    public int getCost() {
+    public int getCheck() {
         return check;
     }
 
@@ -34,13 +34,10 @@ public class Order {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Human: ").append(buyer).append("\nProduct list:\n");
-        for (Product product : list) {
-            sb.append("Product: " + product.getName()).append("Quantity: " + product.getQuantity()).append("\n");
-        }
-        sb.append("Check amount: ").append(check);
-        return sb.toString();
+        return "Human:" + buyer + "\nProduct list:\n" + list + "\nCost:" + check;
     }
 
+
 }
+
+

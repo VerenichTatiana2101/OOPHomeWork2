@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,35 +24,28 @@ public class Automat {
     }
 
     /**
-     * Добавить проверку в Order (validateOrder()) до оформления заказа: 
-     * если заказано некоторого товара больше, чем есть в автомате, 
+     * Добавить проверку в Order (validateOrder()) до оформления заказа:
+     * если заказано некоторого товара больше, чем есть в автомате,
      * удалить этот товар из заказа (желательно в одну проходку)
+     * 
      * @param shoppingList
      * @param nearestAutomat
      * @param buyer
      * @return
      */
-    public Order createOrderList(List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
+    public Order createOrderList(List<Product> shoppingList, Human buyer) {
         int checkList = 0;
-        Product temProduct;
-        List<Product> validatedProducts = new ArrayList<>();
         for (Product myProduct : shoppingList) {
-            temProduct = nearestAutomat.getProduct(myProduct.getName());
-            if (myProduct.equals(temProduct) && nearestAutomat.getProduct(myProduct.getName()).getQuantity() > 0) {
-                validatedProducts.add(temProduct);
-                checkList += nearestAutomat.getProduct(myProduct.getName()).getPrice();
-                (nearestAutomat.getProduct(myProduct.getName()))
-                        .setQuantity(nearestAutomat.getProduct(myProduct.getName()).getQuantity() - 1);
-            } else if (myProduct.equals(temProduct)
-                    && nearestAutomat.getProduct(myProduct.getName()).getQuantity() == 0) {
-                System.out.println(myProduct.getName() + "отсутствует");
+            if (getProduct(myProduct.getName()).getQuantity() > 0
+                    && myProduct.getQuantity() <= getProduct(myProduct.getName()).getQuantity()) {
+                checkList += getProduct(myProduct.getName()).getPrice() * myProduct.getQuantity();
+            } else {
+                shoppingList.remove(myProduct);
             }
         }
-        buyer.setTakeOrder(true);
-        Order order = new Order(checkList, validatedProducts, nearestAutomat, buyer);
+        Order order = new Order(checkList, shoppingList, buyer);
 
         return order;
     }
 
 }
-

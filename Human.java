@@ -48,17 +48,24 @@ public class Human extends Actor {
     }
 
     @Override
-    public Order makeOrder(List<String> deList, Automat nearestAutomat, Human buyer) {
+    public Order makeOrder(List<String> list, Human buyer) {
         ArrayList<Product> shoppingList = new ArrayList<>();
         Product shoppingProduct;
-        for (String nameProduct : deList) {
+        for (String nameProduct : list) {
             shoppingProduct = nearestAutomat.getProduct(nameProduct);
             if (shoppingProduct != null) {
                 shoppingList.add(shoppingProduct);
             }
         }
         setMakeOrder(true);
-        return nearestAutomat.createOrderList(shoppingList, nearestAutomat, buyer);
+        return nearestAutomat.createOrderList(shoppingList, buyer);
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.getName() + "\nВнесённые наличные: " + money;
     }
 
 }
+
+
