@@ -35,5 +35,9 @@ public class Program {
         list2.initHotDrinks(myList2);
         System.out.println(list2.getProduct("d'ore", 250, 75));
 
+        User user = new User();
+        user.choise();
+        //user.userCh(5);
+        user.comparingChoise(user.userCh(5), myList, myList2);
     }
 }

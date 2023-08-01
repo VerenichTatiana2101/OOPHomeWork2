@@ -22,23 +22,40 @@ public class Automat {
         return null;
     }
 
+    // public Order createOrderList(List<Product> shoppingList, Human buyer) {
+    //     int checkList = 0;
+    //     for (Product myProduct : shoppingList) {
+    //         if (getProduct(myProduct.getName()).getQuantity() > 0) {
+    //             checkList += getProduct(myProduct.getName()).getPrice();
+    //         } else {
+    //             shoppingList.remove(myProduct);
+    //         }
+    //     }
+    //     Order order = new Order();
+    //     order.setCheck(checkList);
+    //     order.setMan(buyer);
+    //     order.setList(shoppingList);
 
-    public Order createOrderList(List<Product> shoppingList, Human buyer) {
+    //     return order;
+    // }
+
+    public Order createOrderList(List<Product> shoppingList, ArrayList<Product> myList, Human buyer) {
         int checkList = 0;
+        List<Product> availableProducts = new ArrayList<>();
         for (Product myProduct : shoppingList) {
-            if(getProduct(myProduct.getName()).getQuantity() > 0){
-                checkList += getProduct(myProduct.getName()).getPrice();
-            }
-            else{
-                shoppingList.remove(myProduct);
-            }
+            for (Product product : myList) {
+                if (myProduct.getName().equals(product.getName()) 
+                && myProduct.getQuantity() <= product.getQuantity()) {
+                    availableProducts.add(myProduct);
         }
         Order order = new Order();
         order.setCheck(checkList);
         order.setMan(buyer);
-        order.setList(shoppingList);
-        
+        order.setList(availableProducts);
+
         return order;
     }
 }
-
+    }
+}
+    

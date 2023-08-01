@@ -53,8 +53,23 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return "Product [name = " + name + "; price = " + price + "; quantity = " + quantity 
+        return "\nProduct [name = " + name + "; price = " + price + "; quantity = " + quantity 
         + "; bestBefore = " + bestBefore.get(Calendar.YEAR) + "/" + bestBefore.get(Calendar.MONTH);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Product other = (Product) obj;
+        return this.name.equals(other.name)
+                && this.price == other.price
+                && this.quantity == other.quantity
+                && this.bestBefore.equals(other.bestBefore);
     }
 
 
