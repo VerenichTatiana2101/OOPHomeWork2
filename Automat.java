@@ -22,40 +22,36 @@ public class Automat {
         return null;
     }
 
-    // public Order createOrderList(List<Product> shoppingList, Human buyer) {
-    //     int checkList = 0;
-    //     for (Product myProduct : shoppingList) {
-    //         if (getProduct(myProduct.getName()).getQuantity() > 0) {
-    //             checkList += getProduct(myProduct.getName()).getPrice();
-    //         } else {
-    //             shoppingList.remove(myProduct);
-    //         }
-    //     }
-    //     Order order = new Order();
-    //     order.setCheck(checkList);
-    //     order.setMan(buyer);
-    //     order.setList(shoppingList);
-
-    //     return order;
-    // }
-
-    public Order createOrderList(List<Product> shoppingList, ArrayList<Product> myList, Human buyer) {
+    /**
+     * Добавить проверку в Order (validateOrder()) до оформления заказа: 
+     * если заказано некоторого товара больше, чем есть в автомате, 
+     * удалить этот товар из заказа (желательно в одну проходку)
+     * @param shoppingList
+     * @param nearestAutomat
+     * @param buyer
+     * @return
+     */
+    public Order createOrderList(List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
         int checkList = 0;
-        List<Product> availableProducts = new ArrayList<>();
+        Product temProduct;
+        List<Product> validatedProducts = new ArrayList<>();
         for (Product myProduct : shoppingList) {
-            for (Product product : myList) {
-                if (myProduct.getName().equals(product.getName()) 
-                && myProduct.getQuantity() <= product.getQuantity()) {
-                    availableProducts.add(myProduct);
+            temProduct = nearestAutomat.getProduct(myProduct.getName());
+            if (myProduct.equals(temProduct) && nearestAutomat.getProduct(myProduct.getName()).getQuantity() > 0) {
+                validatedProducts.add(temProduct);
+                checkList += nearestAutomat.getProduct(myProduct.getName()).getPrice();
+                (nearestAutomat.getProduct(myProduct.getName()))
+                        .setQuantity(nearestAutomat.getProduct(myProduct.getName()).getQuantity() - 1);
+            } else if (myProduct.equals(temProduct)
+                    && nearestAutomat.getProduct(myProduct.getName()).getQuantity() == 0) {
+                System.out.println(myProduct.getName() + "отсутствует");
+            }
         }
-        Order order = new Order();
-        order.setCheck(checkList);
-        order.setMan(buyer);
-        order.setList(availableProducts);
+        buyer.setTakeOrder(true);
+        Order order = new Order(checkList, validatedProducts, nearestAutomat, buyer);
 
         return order;
     }
+
 }
-    }
-}
-    
+

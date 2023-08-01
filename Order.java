@@ -5,6 +5,9 @@ public class Order {
     private Human buyer;
     private int check;
 
+    public Order(int check, List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
+    }
+
     public int getCost() {
         return check;
     }
