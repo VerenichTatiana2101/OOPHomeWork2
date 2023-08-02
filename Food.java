@@ -19,4 +19,5 @@ public class Food extends Product {
     public String toString() {
         return super.toString() + ", Weight: " + String.valueOf(weight) + "]";
     }
+
 }

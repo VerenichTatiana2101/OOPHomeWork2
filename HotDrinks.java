@@ -1,9 +1,9 @@
 import java.util.Calendar;
 
 public class HotDrinks extends Beverages {
-    private int temperature;
+    private Integer temperature;
 
-    public HotDrinks(String name, int price, int quantity, Calendar bestBefore, double volume, int temperature){
+    public HotDrinks(String name, int price, int quantity, Calendar bestBefore, double volume, Integer temperature){
         super(name, price, quantity, bestBefore, volume);
         this.temperature = temperature;
     }
@@ -18,7 +18,7 @@ public class HotDrinks extends Beverages {
 
     @Override
     public String toString() {
-        return super.toString() + ", Temperature: " + String.valueOf(temperature) + "]";
+        return super.toString() + ", t°: " + String.valueOf(temperature) + "]";
     }
 
     

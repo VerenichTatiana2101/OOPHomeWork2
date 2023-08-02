@@ -12,7 +12,7 @@ public class HotDrinksAutomat extends Automat {
         for (HotDrinks hotDrink : listHotDrinks) {
             if (hotDrink.getName().equals(name) && hotDrink.getVolume() == volume
                     && hotDrink.getTemperature() == temperature) {
-                return "Name: " + hotDrink.getName() + ", Volume: " + hotDrink.getVolume() + ", Temperature: "
+                return "Name: " + hotDrink.getName() + ", Volume: " + hotDrink.getVolume() + ", t°: "
                         + hotDrink.getTemperature();
             }
         }

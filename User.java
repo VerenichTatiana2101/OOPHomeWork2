@@ -11,9 +11,9 @@ public class User {
 
     public int userCh(int userCh) {
         try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Выберите от 1 до 5: ");
+            System.out.println("Enter a number from 1 to 4.");
             while (!input.hasNextInt()) {
-                System.out.println("Ошибка! Введите число: ");
+                System.out.println("Error! Please, enter a number.");
                 input.next();
             }
             int userChoise = input.nextInt();
@@ -22,12 +22,11 @@ public class User {
     }
 
     public void choise() {
-        System.out.println("Выберите, по каким критериям хотите отсортировать продукты\n"
-                + "1 - по стоимости\n"
-                + "2 - по количеству\n"
-                + "3 - продукты по весу\n"
-                + "4 - горячие напитки по объёму\n"
-                + "5 - горячие напитки по температуре\n");
+        System.out.println("Choose what criteria you want to sort products by:\n"
+                + "1 - sort by cost\n"
+                + "2 - sort by quantity\n"
+                + "3 - sort hot drinks by volume\n"
+                + "4 - sort hot drinks by temperature\n");
     }
 
     public void comparingChoise(int userChoise, List<Product> myList, List<HotDrinks> myList2) {
@@ -40,19 +39,17 @@ public class User {
                 myList.sort(new QuantityComporator());
                 System.out.println(myList);
                 break;
-            // case 3:
-            //     compareToWeight(myList);
-            //     break;
-            case 4:
+
+            case 3:
                 myList2.sort(new VolumeComporator());
                 System.out.println(myList2);
                 break;
-            case 5:
+            case 4:
                 myList2.sort(new TemperatureComporator());
                 System.out.println(myList2);
                 break;
             default:
-                System.out.println("Error! Please, enter a number from 1 to 5.");
+                System.out.println("Error! Please, enter a number from 1 to 4.");
         }
     }
 

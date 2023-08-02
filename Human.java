@@ -21,12 +21,10 @@ public class Human extends Actor {
 
     @Override
     public void setMakeOrder(boolean isMade) {
-
     }
 
     @Override
     public void setTakeOrder(boolean isTook) {
-
     }
 
     @Override
@@ -39,8 +37,8 @@ public class Human extends Actor {
         return true;
     }
 
-    public void setNearestAutomat(Automat list) {
-        this.nearestAutomat = list;
+    public void setNearestAutomat(Automat nearestAutomat) {
+        this.nearestAutomat = nearestAutomat;
     }
 
     public Automat getAutomat() {
@@ -48,7 +46,7 @@ public class Human extends Actor {
     }
 
     @Override
-    public Order makeOrder(List<String> list, Human buyer) {
+    public Order makeOrder(List<String> list, Automat nearestAutomat, Human buyer) {
         ArrayList<Product> shoppingList = new ArrayList<>();
         Product shoppingProduct;
         for (String nameProduct : list) {
@@ -58,12 +56,12 @@ public class Human extends Actor {
             }
         }
         buyer.setMakeOrder(true);
-        return nearestAutomat.createOrderList(shoppingList, buyer);
+        return nearestAutomat.createOrder(shoppingList, nearestAutomat, buyer);
     }
 
     @Override
     public String toString() {
-        return "Name: " + this.getName() + "\nВнесённые наличные: " + money;
+        return "Name: " + this.getName() + "\nCash: " + money;
     }
 
 }

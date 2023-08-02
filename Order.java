@@ -1,23 +1,32 @@
 import java.util.List;
 
 public class Order {
-    private List<Product> shoppingList;
+    private List<Product> productList;
+    private Automat nearestAutomat;
     private Human buyer;
-    private double check;
+    private double price;
 
-    public Order(double check, List<Product> shoppingList, Human buyer) {
+    public Order(List<Product> productList, Human buyer, Automat nearestAutomat, double price) {
+        this.productList = productList;
+        this.buyer = buyer;
+        this.nearestAutomat = nearestAutomat;
+        this.price = price;
     }
 
-    public double getCheck() {
-        return check;
+    public Automat getNearestAutomat() {
+        return nearestAutomat;
     }
 
-    public void setCheck(double check) {
-        this.check = check;
+    public void setNearestAutomat(Automat nearestAutomat) {
+        this.nearestAutomat = nearestAutomat;
     }
 
-    public List<Product> getList() {
-        return shoppingList;
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Human getHuman() {
@@ -28,17 +37,22 @@ public class Order {
         this.buyer = buyer;
     }
 
-    public void setList(List<Product> shoppingList) {
-        this.shoppingList = shoppingList;
+    public void setList(List<Product> productList) {
+        this.productList = productList;
     }
 
+    public List<Product> getList() {
+        return productList;
+    }
 
     @Override
     public String toString() {
-        return "Human:" + buyer + "\nProduct list:\n" + shoppingList + "\nCost:" + check;
+      String result = "Order [";
+      for (int index = 0; index < productList.size(); index++) {
+        result += " Product " + (index + 1) + "=" + productList.get(index).getName() + ", ";
+      }
+      return result + " Name = " + buyer.getName() + ", Total = " + price + "]";
+  
     }
 
-
 }
-
-
