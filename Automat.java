@@ -64,13 +64,10 @@ public class Automat {
 
     @Override
     public String toString() {
-        String result = "Automat [\n";
+        String result = " ";
         for (int i = 0; i < listProduct.size(); i++) {
-            result += listProduct.get(i) + "\n";
-
+            result += listProduct.get(i);
         }
         return result + "]";
     }
-    
-
 }

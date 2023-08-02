@@ -51,7 +51,7 @@ public class Program {
         
         Human tatiana = new Human("Тatiana", false, false, 120);
         tatiana.setNearestAutomat(list);
-        System.out.println("Shopping in the Vending Machine: " + tatiana.toString());
+        System.out.println("Buyer in the Vending Machine, " + tatiana.toString());
         System.out.println();
 
         System.out.println("Available in the Vending Machine: " + list.toString());
@@ -61,18 +61,9 @@ public class Program {
         buyerList.add("baunty");
         buyerList.add("coffee");
         System.out.println(tatiana.makeOrder(buyerList, list, tatiana));
-
-        System.out.println();
-        System.out.println("Shopper bag: " + tatiana.toString());
+        System.out.println("Buyer " + tatiana.toString());
 
         System.out.println();
         System.out.println("Remainder: " + list.toString());
-
-        System.out.println();
-        System.out.println(myList.toString());
-        System.out.println();
-
-
-
     }
 }

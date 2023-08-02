@@ -47,7 +47,7 @@ public class Order {
 
     @Override
     public String toString() {
-      String result = "Order [";
+      String result = "Shopper bag: [";
       for (int index = 0; index < productList.size(); index++) {
         result += " Product " + (index + 1) + "=" + productList.get(index).getName() + ", ";
       }
