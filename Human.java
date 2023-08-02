@@ -11,6 +11,14 @@ public class Human extends Actor {
         this.money = money;
     }
 
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
     @Override
     public void setMakeOrder(boolean isMade) {
 
@@ -23,20 +31,12 @@ public class Human extends Actor {
 
     @Override
     public boolean getTookOrder() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean getMadeOrder() {
-        return false;
-    }
-
-    public double getMoney() {
-        return money;
-    }
-
-    public void setMoney(double money) {
-        this.money = money;
+        return true;
     }
 
     public void setNearestAutomat(Automat list) {
@@ -57,7 +57,7 @@ public class Human extends Actor {
                 shoppingList.add(shoppingProduct);
             }
         }
-        setMakeOrder(true);
+        buyer.setMakeOrder(true);
         return nearestAutomat.createOrderList(shoppingList, buyer);
     }
 

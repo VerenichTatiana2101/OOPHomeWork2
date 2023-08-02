@@ -32,8 +32,9 @@ public class Program {
         myList2.add((HotDrinks)new HotDrinks("lipton", 1, 2, new GregorianCalendar(2023, 7, 28), 250, 80));
         myList2.add((HotDrinks)new HotDrinks("white hot chocolate", 2, 1, new GregorianCalendar(2023, 7, 27), 300, 75));
 
-        list2.initHotDrinks(myList2);
-        System.out.println(list2.getProduct("d'ore", 250, 75));
+        // System.out.println(myList2);
+        // list2.initHotDrinks(myList2);
+        // System.out.println(list2.getProduct("d'ore", 250, 75));
 
         User user = new User();
         user.choise();
@@ -41,8 +42,8 @@ public class Program {
         user.comparingChoise(user.userCh(5), myList, myList2);
 
         ArrayList<String> buyProducts = new ArrayList<>();
-        buyProducts.add("Twix");
-        buyProducts.add("sneck");
+        buyProducts.add("lipton");
+        buyProducts.add("d'ore");
 
         Human tatiana = new Human("Тatiana", false, false, 120);
         tatiana.setNearestAutomat(list);
@@ -51,7 +52,6 @@ public class Program {
 
         Order tatianaOrder = tatiana.makeOrder(buyProducts, tatiana);
         System.out.println(tatianaOrder.toString());
-        //не понимаю почему в итоге печатает пустой
 
     }
 }

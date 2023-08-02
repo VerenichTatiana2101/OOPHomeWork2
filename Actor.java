@@ -13,18 +13,13 @@ public abstract class Actor implements ActorBehaviour {
         return name;
     }
 
-    boolean getIsMakeOrder(){
-        return isMadeOrder;
-    }
-
-    boolean getIsTakeOrder(){
-        return isTookOrder;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Actor: name=" + name + ", makeOrder=" + isMadeOrder + ", takeOrder=" + isTookOrder;
+    }
 
 }

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -8,10 +7,18 @@ import java.util.List;
  * сохраняющий в себе список исходных продуктов и getProduct(String name)
  */
 public class Automat {
-    private ArrayList<Product> listProduct = new ArrayList<>();
+    private List<Product> listProduct = new ArrayList<>();
 
-    public void initProducts(ArrayList<Product> myList) {
+    public void initProducts(List<Product> myList) {
         this.listProduct = myList;
+    }
+
+    public List<Product> getListProduct() {
+        return listProduct;
+    }
+
+    public void setListProduct(List<Product> listProduct) {
+        this.listProduct = listProduct;
     }
 
     public Product getProduct(String name) {
@@ -43,9 +50,20 @@ public class Automat {
                 shoppingList.remove(myProduct);
             }
         }
+        buyer.setTakeOrder(true);
         Order order = new Order(checkList, shoppingList, buyer);
 
         return order;
     }
 
-}
+    @Override
+    public String toString() {
+      String result = "Automat [\n";
+      for (int i = 0; i < listProduct.size(); i++) {
+        result += listProduct.get(i) + "\n";
+  
+      }
+      return result + "]";
+    }
+  
+  }

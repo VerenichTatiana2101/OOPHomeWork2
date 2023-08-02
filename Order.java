@@ -1,40 +1,41 @@
 import java.util.List;
 
 public class Order {
-    private List<Product> list;
+    private List<Product> shoppingList;
     private Human buyer;
-    private int check;
+    private double check;
 
-    public Order(int check, List<Product> shoppingList, Human buyer) {
+    public Order(double check, List<Product> shoppingList, Human buyer) {
     }
 
-    public int getCheck() {
+    public double getCheck() {
         return check;
     }
 
-    public void setCheck(int check) {
+    public void setCheck(double check) {
         this.check = check;
     }
 
     public List<Product> getList() {
-        return list;
+        return shoppingList;
     }
 
-    public Human getMan() {
+    public Human getHuman() {
         return buyer;
     }
 
-    public void setList(List<Product> shoppingList) {
-        this.list = shoppingList;
-    }
-
-    public void setMan(Human buyer) {
+    public void setHuman(Human buyer) {
         this.buyer = buyer;
     }
 
+    public void setList(List<Product> shoppingList) {
+        this.shoppingList = shoppingList;
+    }
+
+
     @Override
     public String toString() {
-        return "Human:" + buyer + "\nProduct list:\n" + list + "\nCost:" + check;
+        return "Human:" + buyer + "\nProduct list:\n" + shoppingList + "\nCost:" + check;
     }
 
 
