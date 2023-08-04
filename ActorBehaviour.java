@@ -5,5 +5,5 @@ public interface ActorBehaviour {
     void setTakeOrder(boolean isTook);
     boolean getTookOrder();
     boolean getMadeOrder();
-    Order makeOrder(List<String> deList, Automat nearesAutomat, Human buyer);
+    Order<Product> makeOrder(List<String> deList, Automat nearesAutomat, Human buyer);
 }

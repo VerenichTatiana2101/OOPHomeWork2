@@ -19,5 +19,7 @@ public class Beverages extends Product {
     public String toString() {
         return super.toString() + ", Volume: " + String.valueOf(volume) + "]";
     }
+
+    
 }
 

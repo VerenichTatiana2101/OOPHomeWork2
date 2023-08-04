@@ -21,20 +21,28 @@ public class Program {
     public static void main(String[] args) {
 
         ArrayList<Product> myList = new ArrayList<>();
-        myList.add(new Food("twix", 2, 5, new GregorianCalendar(2023, 8, 19), 25.5));
-        myList.add(new Food("baunty", 3, 4, new GregorianCalendar(2023, 9, 14), 100.5));
-        myList.add(new Food("sneck", 4, 2, new GregorianCalendar(2023, 11, 25), 75));
-        myList.add(new Food("cola", 3, 1, new GregorianCalendar(2024, 9, 14), 0.5));
-        
+
+        Product prod1 = new Food("twix", 2, 5, new GregorianCalendar(2023, 8, 19), 25.5);
+        Product prod2 = new Food("twix", 2, 5, new GregorianCalendar(2023, 8, 19), 25.5);
+        Product prod3 = new Food("baunty", 3, 4, new GregorianCalendar(2023, 9, 14), 100.5);
+        Product prod4 = new Food("sneck", 4, 2, new GregorianCalendar(2023, 11, 25), 75);
+        Product prod5 = new Beverages("cola", 3, 1, new GregorianCalendar(2024, 9, 14), 0.5);
+        myList.add(prod1);
+        myList.add(prod2);
+        myList.add(prod3);
+        myList.add(prod4);
+        myList.add(prod5);
+
+        System.out.println(prod1.compareTo(prod4));  //сравнение по стоимости
         
         HotDrinksAutomat list2 = new HotDrinksAutomat();
-        List<HotDrinks> myList2 = new ArrayList<>();
+        List<Product> myList2 = new ArrayList<>();
         myList2.add((HotDrinks) new HotDrinks("d'ore", 4, 2, new GregorianCalendar(2023, 8, 25), 250, 75));
         myList2.add((HotDrinks) new HotDrinks("lipton", 1, 2, new GregorianCalendar(2023, 7, 28), 250, 80));
         myList2.add(
                 (HotDrinks) new HotDrinks("white hot chocolate", 2, 1, new GregorianCalendar(2023, 7, 27), 300, 75));
 
-        list2.initHotDrinks(myList2);
+        list2.initProducts(myList2);
 
         Automat list = new Automat();
         list.initProducts(myList);
@@ -44,9 +52,10 @@ public class Program {
          * (можно сделать пользовательский интерфейс и спрашивать у пользователя по чему отсортировать 
          * (по весу, объему, температуре))
          */
-        User user = new User();
-        user.choise();
-        user.comparingChoise(user.userCh(4), myList, myList2);
+        // User user = new User();
+        // user.choise();
+        // user.comparingChoise(user.userCh(4), myList, myList2);
+
 
         
         Human tatiana = new Human("Тatiana", false, false, 120);

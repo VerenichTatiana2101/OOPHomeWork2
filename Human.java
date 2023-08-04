@@ -46,7 +46,7 @@ public class Human extends Actor {
     }
 
     @Override
-    public Order makeOrder(List<String> list, Automat nearestAutomat, Human buyer) {
+    public Order<Product> makeOrder(List<String> list, Automat nearestAutomat, Human buyer) {
         ArrayList<Product> shoppingList = new ArrayList<>();
         Product shoppingProduct;
         for (String nameProduct : list) {

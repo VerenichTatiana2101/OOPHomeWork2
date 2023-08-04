@@ -1,12 +1,12 @@
 import java.util.List;
 
-public class Order {
-    private List<Product> productList;
+public class Order<T extends Product> {
+    private List<T> productList;
     private Automat nearestAutomat;
     private Human buyer;
     private double price;
 
-    public Order(List<Product> productList, Human buyer, Automat nearestAutomat, double price) {
+    public Order(List<T> productList, Human buyer, Automat nearestAutomat, double price) {
         this.productList = productList;
         this.buyer = buyer;
         this.nearestAutomat = nearestAutomat;
@@ -37,11 +37,11 @@ public class Order {
         this.buyer = buyer;
     }
 
-    public void setList(List<Product> productList) {
+    public void setList(List<T> productList) {
         this.productList = productList;
     }
 
-    public List<Product> getList() {
+    public List<T> getList() {
         return productList;
     }
 

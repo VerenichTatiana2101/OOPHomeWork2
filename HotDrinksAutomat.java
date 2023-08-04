@@ -4,8 +4,9 @@ import java.util.List;
 public class HotDrinksAutomat extends Automat {
     private List<HotDrinks> listHotDrinks = new ArrayList<>();
 
-    public void initHotDrinks(List<HotDrinks> myList2) {
-        this.listHotDrinks = myList2;
+    @Override
+    public void initProducts(List<Product> myList2) {
+        super.initProducts(myList2);
     }
 
     public String getProduct(String name, double volume, double temperature) {
@@ -19,5 +20,14 @@ public class HotDrinksAutomat extends Automat {
         return null;
     }
 
+    public HotDrinks getDrinksName(String name) {
+        for (Product hotDrink : listHotDrinks) {
+            if (hotDrink instanceof Product & hotDrink.getName().equals(name)) {
+                return (HotDrinks) hotDrink;
+            }
+        }
+        return null;
+
+    }
 
 }

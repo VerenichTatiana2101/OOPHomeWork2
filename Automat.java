@@ -40,7 +40,7 @@ public class Automat {
      * @param buyer
      * @return
      */
-    public Order createOrder(List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
+    public Order<Product> createOrder(List<Product> shoppingList, Automat nearestAutomat, Human buyer) {
         ArrayList<Product> validatedList = new ArrayList<>();
         Product tempProduct;
         double checkList = 0;
@@ -57,7 +57,7 @@ public class Automat {
             }
         }
         buyer.setTakeOrder(true);
-        Order order = new Order(validatedList, buyer, nearestAutomat, checkList);
+        Order<Product> order = new Order<Product>(validatedList, buyer, nearestAutomat, checkList);
         buyer.setMoney(buyer.getMoney() - checkList);
         return order;
     }
