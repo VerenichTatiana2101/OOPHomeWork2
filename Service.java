@@ -1,4 +1,4 @@
 public interface Service<A, P> {
-    A restock(A automat, P product);
+    A replenishment(A automat, P product);
   
   }

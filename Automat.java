@@ -7,7 +7,7 @@ import java.util.List;
  * сохраняющий в себе список исходных продуктов и getProduct(String name)
  */
 public class Automat {
-    private List<Product> listProduct = new ArrayList<>();
+    protected List<Product> listProduct = new ArrayList<>();
 
     public void initProducts(List<Product> myList) {
         this.listProduct = myList;

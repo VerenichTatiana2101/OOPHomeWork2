@@ -3,7 +3,7 @@ import java.util.List;
 public class ServiceAutomat implements Service<Automat, Product> {
 
     @Override
-    public Automat restock(Automat automat, Product product) {
+    public Automat replenishment(Automat automat, Product product) {
         Product addProduct = automat.getProduct(product.getName());
         List<Product> listProducts = automat.getListProduct();
         if (addProduct != null) {
