@@ -1,5 +1,9 @@
 import java.util.List;
-
+/*
+ * Класс Ордер сделайте типизированным, добавьте возможность создавать заказ с продуктами: 
+ * 2.1 однотипными 2.2(*) разного типа Внесите соответственно изменения в остальной код, 
+ * где используются объекты заказа
+ */
 public class Order<T extends Product> {
     private List<T> productList;
     private Automat nearestAutomat;

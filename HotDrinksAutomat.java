@@ -5,8 +5,8 @@ public class HotDrinksAutomat extends Automat {
     private List<HotDrinks> listHotDrinks = new ArrayList<>();
 
     @Override
-    public void initProducts(List<Product> myList2) {
-        super.initProducts(myList2);
+    public void initProducts(List<Product> myList) {
+        super.initProducts(myList);
     }
 
     public String getProduct(String name, double volume, double temperature) {
