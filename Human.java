@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 import java.util.List;
-
+/*
+ * Данный класс нарушает принцип единственной ответственности, т.к. имеет не совсем связные между собой поля
+ * и методы - для создания заказа и получения автомата
+ */
 public class Human extends Actor {
     private double money;
     private Automat nearestAutomat;
@@ -63,7 +66,6 @@ public class Human extends Actor {
     public String toString() {
         return "Name: " + this.getName() + "\nCash: " + money;
     }
-
 }
 
 

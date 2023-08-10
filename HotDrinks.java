@@ -1,5 +1,9 @@
 import java.util.Calendar;
-
+/*
+ * В данном классе нарушений не вижу, класс имеет только одну обязанность создания горячих напитков,
+ * Полиморфизм или наследование не использовалось, интерфейсы тоже. Абстракции используются
+ * для создания горячих напитков.
+ */
 public class HotDrinks extends Beverages {
     private Integer temperature;
 
@@ -19,7 +23,5 @@ public class HotDrinks extends Beverages {
     @Override
     public String toString() {
         return super.toString() + ", t°: " + String.valueOf(temperature) + "]";
-    }
-
-    
+    }   
 }

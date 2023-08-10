@@ -1,7 +1,9 @@
 
 import java.util.List;
 import java.util.Scanner;
-
+/*
+ * Данный класс считаю также соответствует всем параметрам SOLID
+ */
 public class User {
 
     @Override

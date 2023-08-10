@@ -23,16 +23,14 @@ public class Program {
         ArrayList<Product> myList = new ArrayList<>();
 
         Product prod1 = new Food("twix", 2, 5, new GregorianCalendar(2023, 8, 19), 25.5);
-        Product prod2 = new Food("twix", 2, 5, new GregorianCalendar(2023, 8, 19), 25.5);
-        Product prod3 = new Food("baunty", 3, 4, new GregorianCalendar(2023, 9, 14), 100.5);
-        Product prod4 = new Food("sneck", 4, 2, new GregorianCalendar(2023, 11, 25), 75);
-        Product prod5 = new Beverages("cola", 3, 1, new GregorianCalendar(2024, 9, 14), 0.5);
-        Product prod6 = new Beverages("sprite", 3, 2, new GregorianCalendar(2024, 5, 25), 0.5);
+        Product prod2 = new Food("baunty", 3, 4, new GregorianCalendar(2023, 9, 14), 100.5);
+        Product prod3 = new Food("sneck", 4, 2, new GregorianCalendar(2023, 11, 25), 75);
+        Product prod4 = new Beverages("cola", 3, 1, new GregorianCalendar(2024, 9, 14), 0.5);
+        Product prod5 = new Beverages("sprite", 3, 2, new GregorianCalendar(2024, 5, 25), 0.5);
         myList.add(prod1);
         myList.add(prod2);
         myList.add(prod3);
         myList.add(prod4);
-        myList.add(prod5);
         
         List<Product> myList2 = new ArrayList<>();
         Product drink1 = new HotDrinks("d'ore", 4, 2, new GregorianCalendar(2023, 8, 25), 250, 75);
@@ -57,7 +55,7 @@ public class Program {
          * а в автомат с горячими напитками - горячие напитки
          */
         ServiceAutomat servAutom = new ServiceAutomat();
-        servAutom.replenishment(list, prod6);
+        servAutom.replenishment(list, prod5);
         System.out.println(list.toString());
         /*
          * добавление в автомат с горячими напитками
@@ -80,22 +78,22 @@ public class Program {
 
 
         //////////////////////HW3
-        // Human tatiana = new Human("Тatiana", false, false, 120);
-        // tatiana.setNearestAutomat(list);
-        // System.out.println("Buyer in the Vending Machine, " + tatiana.toString());
-        // System.out.println();
+        Human tatiana = new Human("Тatiana", false, false, 120);
+        tatiana.setNearestAutomat(list);
+        System.out.println("Buyer in the Vending Machine, " + tatiana.toString());
+        System.out.println();
 
-        // System.out.println("Available in the Vending Machine: " + list.toString());
-        // System.out.println();
+        System.out.println("Available in the Vending Machine: " + list.toString());
+        System.out.println();
 
-        // List<String> buyerList = new ArrayList<>();
-        // buyerList.add("baunty");
-        // buyerList.add("coffee");
-        // System.out.println(tatiana.makeOrder(buyerList, list, tatiana));
-        // System.out.println("Buyer " + tatiana.toString());
+        List<String> buyerList = new ArrayList<>();
+        buyerList.add("baunty");
+        buyerList.add("cofee");
+        System.out.println(tatiana.makeOrder(buyerList, list, tatiana));
+        System.out.println("Buyer " + tatiana.toString());
 
-        // System.out.println();
-        // System.out.println("Remainder: " + list.toString());
+        System.out.println();
+        System.out.println("Remainder: " + list.toString());
         ////////////////////////
     }
 }

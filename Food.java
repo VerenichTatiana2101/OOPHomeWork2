@@ -1,5 +1,9 @@
 import java.util.Calendar;
-
+/*
+ * В данном классе нарушений не вижу, класс имеет только одну обязанность создания продуктов(еды),
+ * Полиморфизм или наследование не использовалось, интерфейсы тоже. Абстракции используются
+ * для создания продуктов(еды).
+ */
 public class Food extends Product {
     private double weight;
     public Food(String name, int price, int quantity, Calendar bestBefore, double weight) {

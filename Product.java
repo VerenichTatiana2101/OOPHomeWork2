@@ -1,4 +1,10 @@
 import java.util.Calendar;
+/*
+ * В данном классе нарушений не вижу, класс представляющий продукт.
+ * Поля описывают определённые параметры продуктов.
+ * Класс реализует интерфейс Comparable и переопределяет его метод 
+ * compareTo для сравнения двух продуктов.
+ */
 
 /**
  * Реализуйте класс Товар, содержащий данные о товаре, и ТорговыйАвтомат,
@@ -54,21 +60,6 @@ public abstract class Product implements Comparable<Product> {
     public String toString() {
         return "\nProduct [name = " + name + "; price = " + price + "; quantity = " + quantity
                 + "; bestBefore = " + bestBefore.get(Calendar.YEAR) + "/" + bestBefore.get(Calendar.MONTH);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Product other = (Product) obj;
-        return this.name.equals(other.name)
-                && this.price == other.price
-                && this.quantity == other.quantity
-                && this.bestBefore.equals(other.bestBefore);
     }
 
     @Override
